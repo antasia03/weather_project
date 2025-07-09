@@ -23,34 +23,45 @@
 
 ## 4. Setup Instructions
 
-### Prerequisites
+## Prerequisites
 - Docker
 - Docker Compose
 - OpenWeatherMap API key (free tier available at [openweathermap.org](https://openweathermap.org/))
 
-1. Clone the repository:
+## 1. Clone the repository:
 `git clone <your-repo-url>`
+
 `cd <your-repo-folder>`
 
-2. Create .env file with the following variables:
+## 2. Create .env file with the following variables:
 `DB_NAME=weather_db
+
 DB_USER=postgres
+
 DB_PASSWORD=yourpassword
+
 DB_HOST=db
+
 DB_PORT=5432
+
 OPENWEATHER_API_KEY=your_api_key_here
+
 SECRET_KEY=your_django_secret_key
+
 DEBUG=True`
 
-3. Build and start Docker containers:
+## 3. Build and start Docker containers:
+
 `docker-compose up --build`
 
-4. Apply migrations and create a superuser for admin access:
+## 4. Apply migrations and create a superuser for admin access:
+
 `docker-compose run web python manage.py migrate`
+
 `docker-compose run web python manage.py createsuperuser`
 
-5. Access the app at http://localhost:8000
+## 5. Access the app at http://localhost:8000
 Access the admin panel at http://localhost:8000/admin and log in with the superuser credentials.
 
-6. To run tests inside the container:
+## 6. To run tests inside the container:
 `docker-compose run web python manage.py test`
